@@ -102,6 +102,7 @@ class Ano {
     textFont(Font2);
     text(this.traficados + " Escravos traficados", 0, 0);
     text(this.mortos + " Escravos mortos", 0, 20);
+    text(this.nViagens + " Viagens", 0, 40);
     ultimoAnoMostrado = this.ano;
   }
 
@@ -134,9 +135,27 @@ class Ano {
       }
     }
 
-    
+
     if (mouseX > (rectXmin) + width/2 && mouseX < ((rectXmin + rectXmax)) + width/2 && mouseY > viagensY + height/2 && mouseY < (viagensY + viagensHeight) + height/2) {
-      this.opacidade = 20;
+    //  this.opacidade = 20;
+      
+      if (this.ano==anoMouse) {
+        mostraInfoTM();
+        this.opacidade = 255;
+      } else {
+        this.opacidade = 20;
+      }
+      
+    }
+
+    if (mouseX > (rectXmin) + width/2 && mouseX < ((rectXmin + rectXmax)) + width/2 && mouseY > percentagemY + height/2 && mouseY < (percentagemY + percentagemHeight) + height/2) {
+
+      if (this.ano==anoMouse) {
+        mostraInfoTM();
+        this.opacidade = 255;
+      } else {
+        this.opacidade = 30;
+      }
     }
 
     pushMatrix();

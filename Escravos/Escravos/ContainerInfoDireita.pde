@@ -33,11 +33,13 @@ void ContainerInfoDireita() {
   //——————————————————————————
   traficadosGeral = 0;
   mortosGeral = 0;
+  viagensGeral = 0;
 
   for (Ano ano : anos.values()) {
     if (ano.ano>=anoSlider && ano.ano <=anoSlider2) {
       traficadosGeral += ano.traficados;
       mortosGeral += ano.mortos;
+      viagensGeral += ano.nViagens;
     }
   }
 
@@ -45,6 +47,7 @@ void ContainerInfoDireita() {
   NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.FRENCH);
   String traficadosGeralProcessado = numberFormat.format(traficadosGeral);
   String mortosGeralProcessado = numberFormat.format(mortosGeral);
+  String viagensGeralProcessado = numberFormat.format(viagensGeral);
 
 
   textFont(Font1);
@@ -54,13 +57,18 @@ void ContainerInfoDireita() {
   fill(255, 0, 0);
   text(mortosGeralProcessado, rectXmin + 20, textY + incremento);
   fill(83);
-  text(viagensGeral, rectXmin + 20, textY + (incremento*2));
+  text(viagensGeralProcessado, rectXmin + 20, textY + (incremento*2));
   textFont(Font2);
   fill(112);
   textSize(15);
   text("Escravos traficados", rectXmin + 140, textY);
   text("Escravos mortos", rectXmin + 130, textY + incremento);
   text("Viagens realizadas", rectXmin + 100, textY + (incremento*2));
+  
+  textFont(Font1);
+  textSize(20);
+  fill(83);
+  text("Tráfico escravos transatlântico 1566—1866", (rectXmin + 100) - width/2, (-height/2) + 30);
 
 
   rectMode(CORNER);
@@ -101,8 +109,9 @@ void ContainerInfoDireita() {
   noStroke();
   ellipseMode(CORNER);
   fill(88, 208, 188);
+  
   ellipse((rectXmin + 45) - 25, (viagensY + 55) - 11, 15, 15);
-  fill(254, 208, 64);
+  fill(252, 186, 45);
   ellipse(((rectXmin + 45) + textIcrement) - 15, (viagensY + 55) - 11, 15, 15);
   fill(84, 92, 149);
   ellipse((rectXmin + 45) + (2 * textIcrement) + 10, (viagensY + 55) - 11, 15, 15);

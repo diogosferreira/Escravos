@@ -56,7 +56,7 @@ void inicializaHashNacionalidadeCor() {
    */
 
   String[] nacionalidades = {"Espanha / Uruguai", "Grã Bretanha", "França", "Portugal / Brasil", "Holanda"};
-  color[] cores = {color(254, 208, 64), color(248, 67, 140), color(47, 179, 244), color(88, 208, 188), color(84, 92, 149)};
+  color[] cores = {color(252, 186, 45), color(248, 67, 140), color(47, 179, 244), color(88, 208, 188), color(84, 92, 149)};
 
   for (int i = 0; i < nacionalidades.length; i++) {
     coresNacionalidades.put(nacionalidades[i], cores[i]);

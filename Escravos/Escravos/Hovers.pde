@@ -13,14 +13,14 @@ void detetaHovers() {
 
     if (mouseX > (rectXmin + 40) + width/2 && mouseX < ((rectXmin + rectXmax) - 20) + width/2 && mouseY > viagensY + height/2 && mouseY < (viagensY + viagensHeight) + height/2) {
 
-      int anoMouse = int(map(mouseX, (rectXmin + 40) + width/2, ((rectXmin + rectXmax) - 20) + width/2, anoSlider, anoSlider2));
+      anoMouse = int(map(mouseX, (rectXmin + 40) + width/2, ((rectXmin + rectXmax) - 20) + width/2, anoSlider, anoSlider2));
       int hoverMouseAnoPortugal = 0;
       int hoverMouseAnoEspanha = 0;
       int hoverMouseAnoHolanda = 0;
       int hoverMouseAnoInglaterra = 0;
       int hoverMouseAnofranca = 0;
 
-      println(anoMouse +   "   anoMouse");
+      //println(anoMouse +   "   anoMouse");
       //text(anoMouse, mouseX, (viagensY+ viagensHeight) - 10 );
 
       strokeWeight(1);
@@ -89,7 +89,7 @@ void detetaHovers() {
 
     if (mouseX > (rectXmin + 40) + width/2 && mouseX < ((rectXmin + rectXmax) - 20) + width/2 && mouseY > percentagemY + height/2 && mouseY < (percentagemY + percentagemHeight) + height/2) {
 
-      int anoMouse = int(map(mouseX, (rectXmin + 40) + width/2, ((rectXmin + rectXmax) - 20) + width/2, anoSlider, anoSlider2));
+      anoMouse = int(map(mouseX, (rectXmin + 40) + width/2, ((rectXmin + rectXmax) - 20) + width/2, anoSlider, anoSlider2));
       int hoverMouseAnoPercentagem = 0;
 
 
@@ -135,6 +135,9 @@ void detetaHovers() {
       fill(0);
       text(anoMouse, mouseX - (width/2), (percentagemY+ percentagemHeight) - 10);
     }
+
+
+
 
     //FUNÇÂO DESENHAR LINHAS GRAREDONDO
     //pushMatrix();
@@ -194,7 +197,7 @@ void escolheCursor () {
   if (mouseX > (rectXmin) + width/2 && mouseX < ((rectXmin + rectXmax)) + width/2 && mouseY > viagensY + height/2 && mouseY < (viagensY + viagensHeight) + height/2) {
     cursor(HAND);
   } else if (mouseX > (rectXmin) + width/2 && mouseX < ((rectXmin + rectXmax)) + width/2 && mouseY > percentagemY + height/2 && mouseY < (percentagemY + percentagemHeight) + height/2) {
-    cursor(HAND);
+    cursor(HAND);    
   } else if (mouseX > (rectXmin + 18) + width/2 && mouseX < ((rectXmin + rectXmax) - 18) + width/2 && mouseY > ((sliderY + (sliderHeight/2) + 20) - sliderHeight/6) + height/2 && mouseY<((sliderY + (sliderHeight/2)+20) + sliderHeight/6) + height/2) {
     cursor(HAND);
   } else {

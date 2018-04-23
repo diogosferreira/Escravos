@@ -9,6 +9,8 @@ int mortosGeral = 1366302;
 int viagensGeral = 33595;
 
 
+int anoMouse = 1566;
+
 //——————————————————
 //——————————————————
 
