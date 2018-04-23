@@ -1,6 +1,6 @@
 class Ano {
 
-  int ano, traficados, mortos, opacidade = 255;
+  int ano, traficados, mortos, nViagens, opacidade = 255;
   Bola bolaT = new Bola('t'), bolaM = new Bola('m');
   float angulo;
   PVector vector = new PVector();
@@ -8,10 +8,11 @@ class Ano {
   int nd, esp, gb, f, pt, hol, din, eua, out;
   float posND, posEsp, posGB, posF, posPT, posHol, posDin, posEUA, posOut;
 
-  Ano(int a, int t, int m, int nd, int esp, int gb, int f, int pt, int hol, int din, int eua, int out) {
+  Ano(int a, int t, int m, int nV, int nd, int esp, int gb, int f, int pt, int hol, int din, int eua, int out) {
     this.ano = a;
     this.traficados = t;
     this.mortos = m;
+    this.nViagens = nV;
     this.nd = nd;
     this.esp = esp;
     this.gb = gb;
@@ -91,7 +92,6 @@ class Ano {
 
   void inicializaVector() {
     vector.set(minXY * cos(angulo), minXY * sin(angulo));
-    stroke(0, 255, 0);
   }
 
   void mostraInfoTM() {
@@ -121,7 +121,6 @@ class Ano {
     //SLIDER CONTROLA OPACIDADE
     if (this.ano >= anoSlider && this.ano <= anoSlider2) {
       this.opacidade = 255;
-      println(" 255   ");
     } else {
       this.opacidade = 30;
     }

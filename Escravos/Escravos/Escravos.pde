@@ -166,6 +166,7 @@ void desenhaForaDentro() {
 
 
     ano.desenhaMortosTraficadosFD(minXY, maxXY, angulo, vectorMouse);
+    
     ano.atribuiPosicoesNacionalidades();
     angulo += incAngulo;
   }
@@ -217,6 +218,7 @@ void preencheAnos() {
     int din = linha.getInt(9);
     int eua = linha.getInt(10);
     int out = linha.getInt(11);
-    anos.put(ano, new Ano(ano, traficados, mortos, nd, esp, gb, f, pt, hol, din, eua, out));
+    int nV = linha.getInt(12);
+    anos.put(ano, new Ano(ano, traficados, mortos, nV, nd, esp, gb, f, pt, hol, din, eua, out));
   }
 }

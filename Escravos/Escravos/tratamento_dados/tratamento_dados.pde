@@ -11,6 +11,7 @@ IntDict anoHol = new IntDict();
 IntDict anoDin = new IntDict();
 IntDict anoUSA = new IntDict();
 IntDict anoOutro = new IntDict();
+IntDict viagensAno = new IntDict();
 
 void setup() {
 
@@ -47,6 +48,8 @@ void criaTabela1() {
   tabela1.addColumn("Dinamarca / Bálticos");
   tabela1.addColumn("E.U.A.");
   tabela1.addColumn("Outros");
+  // --
+  tabela1.addColumn("viagens");
 
   for (TableRow linha : original.rows()) {
     int traf = 0;
@@ -67,30 +70,39 @@ void criaTabela1() {
     switch (n) {
     case "":
       anoND.add(linha.getString("year"), traf);
+      viagensAno.add(linha.getString("year"), 1);
       break;
     case "Spain / Uruguay":
       anoEsp.add(linha.getString("year"), traf);
+      viagensAno.add(linha.getString("year"), 1);
       break;
     case "Great Britain":
       anoGB.add(linha.getString("year"), traf);
+      viagensAno.add(linha.getString("year"), 1);
       break;
     case "France":
       anoF.add(linha.getString("year"), traf);
+      viagensAno.add(linha.getString("year"), 1);
       break;
     case "Portugal / Brazil":
       anoPT.add(linha.getString("year"), traf);
+      viagensAno.add(linha.getString("year"), 1);
       break;
     case "Netherlands":
       anoHol.add(linha.getString("year"), traf);
+      viagensAno.add(linha.getString("year"), 1);
       break;
     case "Denmark / Baltic":
       anoDin.add(linha.getString("year"), traf);
+      viagensAno.add(linha.getString("year"), 1);
       break;
     case "U.S.A.":
       anoUSA.add(linha.getString("year"), traf);
+      viagensAno.add(linha.getString("year"), 1);
       break;
     case "Other":
       anoOutro.add(linha.getString("year"), traf);
+      viagensAno.add(linha.getString("year"), 1);
       break;
     }
   }
@@ -109,6 +121,7 @@ void criaTabela1() {
     novaLinha.setString("Dinamarca / Bálticos", str(verificaNacionalidadeAno(ano, anoDin)));
     novaLinha.setString("E.U.A.", str(verificaNacionalidadeAno(ano, anoUSA)));
     novaLinha.setString("Outros", str(verificaNacionalidadeAno(ano, anoOutro)));
+    novaLinha.setString("viagens", str(viagensAno.get(ano)));
   }
 }
 

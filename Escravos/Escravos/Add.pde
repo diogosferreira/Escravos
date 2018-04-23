@@ -4,10 +4,10 @@
 
 ArrayList<Marco> marcos = new ArrayList<Marco>();
 
-void preencheMarcos(){
-  
+void preencheMarcos() {
+
   Table tabelaFactos = loadTable("tratamento_dados/tabela_factos.csv", "header");
-  
+
   for (TableRow linha : tabelaFactos.rows()) {
     int anoInicio = linha.getInt(0);
     int anoFim = linha.getInt(1);
@@ -19,14 +19,18 @@ void preencheMarcos(){
 }
 
 void verificaSeTemMarco() {
-    for (Ano ano : anos.values()) {
-      for (Marco marco : marcos) {
-        if (ano.ano == marco.anoInicio) {
-          marco.desenhaMarco(ano.angulo);
-        }
+  for (Ano ano : anos.values()) {
+    for (Marco marco : marcos) {
+      if (ano.ano == marco.anoInicio) {
+        marco.anguloInicio = ano.angulo;
+      }
+      if (ano.ano == marco.anoFim) {
+        marco.anguloFim = ano.angulo;
+        marco.desenhaMarco();
       }
     }
   }
+}
 
 
 //----------------------
