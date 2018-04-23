@@ -121,7 +121,6 @@ class Ano {
     //SLIDER CONTROLA OPACIDADE
     if (this.ano >= anoSlider && this.ano <= anoSlider2) {
       this.opacidade = 255;
-      println(" 255   ");
     } else {
       this.opacidade = 30;
     }

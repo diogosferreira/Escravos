@@ -10,8 +10,8 @@ void ContainerInfoDireita() {
 
   viagensY = - height/3;
 
-  viagensHeight = height/3.2;
-  percentagemHeight = height/3.2;
+  viagensHeight = height/2.8;
+  percentagemHeight = height/3.6;
   sliderHeight = height/8;
 
   percentagemY = viagensY + viagensHeight + 10;
@@ -91,21 +91,23 @@ void ContainerInfoDireita() {
   textFont(Font2);
   textSize(12);
   fill(83);
-  text("Portugal", (rectXmin + 40), viagensY + 55);
-  text("Espanha", (rectXmin + 40) + textIcrement, viagensY + 55);
-  text("Holanda", (rectXmin + 40) + 2* textIcrement, viagensY + 55);
-  text("França", (rectXmin + 40) + 3* textIcrement, viagensY + 55);
+  text("Portugal/Brasil", (rectXmin + 40), viagensY + 55);
+
+  text("Espanha/Uruguai", (rectXmin + 40) + textIcrement + 10, viagensY + 55);
+
+  text("Holanda", (rectXmin + 40) + 2* textIcrement + 35, viagensY + 55);
+  text("França", (rectXmin + 40) + 3* textIcrement + 13, viagensY + 55);
   text("Inglaterra", (rectXmin + 40) + 4* textIcrement, viagensY + 55);
   noStroke();
   ellipseMode(CORNER);
   fill(88, 208, 188);
   ellipse((rectXmin + 45) - 25, (viagensY + 55) - 11, 15, 15);
   fill(254, 208, 64);
-  ellipse(((rectXmin + 45) + textIcrement) - 25, (viagensY + 55) - 11, 15, 15);
+  ellipse(((rectXmin + 45) + textIcrement) - 15, (viagensY + 55) - 11, 15, 15);
   fill(84, 92, 149);
-  ellipse((rectXmin + 45) + (2 * textIcrement) - 25, (viagensY + 55) - 11, 15, 15);
+  ellipse((rectXmin + 45) + (2 * textIcrement) + 10, (viagensY + 55) - 11, 15, 15);
   fill(47, 179, 244);
-  ellipse((rectXmin + 45) + (3 * textIcrement) - 25, (viagensY + 55) - 11, 15, 15);
+  ellipse((rectXmin + 45) + (3 * textIcrement)-10, (viagensY + 55) - 11, 15, 15);
   fill( 248, 67, 140);
   ellipse((rectXmin + 45) + (4 * textIcrement) - 25, (viagensY + 55) - 11, 15, 15);
 
@@ -139,11 +141,11 @@ void ContainerInfoDireita() {
   //––—————————————————
 
   //line(rectXmin + 20, percentagemY + 55, rectXmin + 20, percentagemY + percentagemHeight - 55);
-  stroke(150);
-  line(rectXmin + 20, percentagemY + 75, rectXmin + 20, (percentagemY + percentagemHeight) - 30);
-  line(rectXmin + 20, (percentagemY + percentagemHeight) - 30, (rectXmin + rectXmax) - 20, (percentagemY + percentagemHeight) - 30);
+  stroke(180);
+  line(rectXmin + 40, percentagemY + 75, rectXmin + 40, (percentagemY + percentagemHeight) - 30);
+  line(rectXmin + 40, (percentagemY + percentagemHeight) - 30, (rectXmin + rectXmax) - 20, (percentagemY + percentagemHeight) - 30);
 
-  float espacamento = (((rectXmin + rectXmax) - 20) - (rectXmin + 20)) /(anoSlider2 - anoSlider);
+  float espacamento = (((rectXmin + rectXmax) - 20) - (rectXmin + 40)) /(anoSlider2 - anoSlider);
   float alturaTotal = ((percentagemY + percentagemHeight) - 30) - (percentagemY + 75);
   incremetoGrafPercentagem = 0;
 
@@ -154,7 +156,7 @@ void ContainerInfoDireita() {
 
     if (ano.ano>=anoSlider && ano.ano <=anoSlider2) {
 
-      float anoTotal = ano.mortos + ano.traficados;
+      float anoTotal = ano.traficados;
       float percentagemMortos = (ano.mortos *100) / anoTotal;
 
       //println("espaçamento " + espacamento);
@@ -165,7 +167,7 @@ void ContainerInfoDireita() {
       stroke(255, 0, 0);
       noFill();
       //strokeWeight(1.2);
-      vertex((rectXmin + 20) + (espacamento * incremetoGrafPercentagem), ((percentagemY + percentagemHeight) - 30) - ((percentagemMortos * alturaTotal) / 30));
+      vertex((rectXmin + 40) + (espacamento * incremetoGrafPercentagem), ((percentagemY + percentagemHeight) - 30) - ((percentagemMortos * alturaTotal) / 34));
 
       //ellipse((rectXmin + 20) + (espacamento * incremetoGrafPercentagem), (percentagemY + percentagemHeight)  - percentagemMortos, 10, 10);
       incremetoGrafPercentagem++;
@@ -177,13 +179,12 @@ void ContainerInfoDireita() {
   textFont(Font2);
   textSize(12);
   //X
-  text(anoSlider, rectXmin + 10, percentagemY + percentagemHeight - 10);
+  text(anoSlider, rectXmin + 30, percentagemY + percentagemHeight - 10);
   text(anoSlider2, (rectXmin + rectXmax) - 38, percentagemY + percentagemHeight - 10);
 
-  text(anoSlider + ((anoSlider2 - anoSlider) / 2), (((rectXmin + rectXmax) - 38) - ((rectXmin + 10) / 2)) - rectXmin, percentagemY + percentagemHeight - 10);
   //Y
-  text("30%", rectXmin + 10, (percentagemY + percentagemHeight - 30) - alturaTotal);
-  text("15%", rectXmin + 10, (percentagemY + percentagemHeight - 30) - (alturaTotal / 2));
+  text("34%", rectXmin + 10, (percentagemY + percentagemHeight - 30) - (alturaTotal -5));
+  text("17%", rectXmin + 10, (percentagemY + percentagemHeight - 30) - ((alturaTotal / 2) - 5));
 
 
 
@@ -206,9 +207,19 @@ void ContainerInfoDireita() {
   // —————————————————————————————————
 
 
-  float espacamentoViagens = (((rectXmin + rectXmax) - 20) - (rectXmin + 20)) /(anoSlider2 - anoSlider);
-  float alturaTotalViagens = ((viagensY + viagensHeight) - 30) - (viagensY + 75);
+  float espacamentoViagens = (((rectXmin + rectXmax) - 20) - (rectXmin + 40)) /(anoSlider2 - anoSlider);
+  float alturaTotalViagens = ((viagensY + viagensHeight) - 30) - (viagensY + 100);
   float incremetoGrafViagens = 0;
+
+
+
+  //LINHAS GRAFICO VIAGENS
+  stroke(180);
+  line(rectXmin + 40, viagensY + 100, rectXmin + 40, (viagensY + viagensHeight) - 30);
+  line(rectXmin + 40, (viagensY + viagensHeight) - 30, (rectXmin + rectXmax) - 20, (viagensY + viagensHeight) - 30);
+
+  text("100m", rectXmin + 7, (viagensY + viagensHeight - 30) - (alturaTotalViagens - 5));
+  text("50m", rectXmin + 10, (viagensY + viagensHeight - 30) - ((alturaTotalViagens / 2)));
 
 
   for (String n : coresNacionalidades.keySet()) {
@@ -222,15 +233,24 @@ void ContainerInfoDireita() {
     for (Ano ano : anos.values()) {
       if (ano.ano>=anoSlider && ano.ano <=anoSlider2) {
 
-        vertex((rectXmin + 20) + (espacamentoViagens * incremetoGrafViagens), ((viagensY + viagensHeight) - 30) - ((ano.obterTrafPais(n) *  alturaTotalViagens) / 100000));
+        vertex((rectXmin + 40) + (espacamentoViagens * incremetoGrafViagens), ((viagensY + viagensHeight) - 30) - ((ano.obterTrafPais(n) *  alturaTotalViagens) / 100000));
 
         //println(ano.obterPosNacionalidades(n) + " -- > ano nac");
-
         incremetoGrafViagens++;
       }
     }
     endShape();
   }
+  
+  
+  //LEGENDA ANOS VIAGENS
+  textFont(Font2);
+  textSize(12);
+  //X
+  text(anoSlider, rectXmin + 30, viagensY + viagensHeight - 10);
+  text(anoSlider2, (rectXmin + rectXmax) - 38, viagensY + viagensHeight - 10);
+
+
 
 
   // —————————————————————————————————
@@ -248,11 +268,11 @@ void ContainerInfoDireita() {
   textAlign(LEFT);
   textFont(Font1);
   textSize(14);
-  text("Escolha o range que deseja ver", rectXmin + 20, sliderY + 25);
+  text("Escolha o intervalo de tempo que deseja ver", rectXmin + 20, sliderY + 25);
   strokeWeight(1);
   stroke(221, 223, 226);
   line(rectXmin + 20, sliderY + 35, (rectXmin + rectXmax) - 20, sliderY + 35);
   stroke(0);
   strokeWeight(1.2);
-  line(rectXmin + 20, sliderY + 35, (rectXmin + 20) + 215, sliderY + 35);
+  line(rectXmin + 20, sliderY + 35, (rectXmin + 20) + 295, sliderY + 35);
 }

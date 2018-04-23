@@ -62,7 +62,7 @@ void desenhaSlider() {
   textSize(12);
   //SLIDER 1 TEXTO
   text(anoSlider, slider1POS, sliderY + 60);
-  //SLIDER 1 TEXTO
+  //SLIDER 2 TEXTO
   text(anoSlider2, slider2POS, sliderY + 60);
 
 
