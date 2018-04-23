@@ -99,6 +99,7 @@ void draw() {
   desenhaSlider();
   //desenhaLinhasNacionalidadesLado();
   detetaHovers();
+  
 }
 
 

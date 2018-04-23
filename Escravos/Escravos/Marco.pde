@@ -25,6 +25,13 @@ class Marco {
     fill(255);
     text(this.facto, 0, -50);
     popMatrix();
+    
+    int centroGX = width/2 + centroGraficoPrincipalX, centroGY = height/2;
+    if(dist(mouseX, mouseY, centroGX + ((maxXY + 50) * cos(anguloFim - ((anguloFim - anguloInicio) / 2))), centroGY + ((maxXY + 50)* sin(anguloFim - ((anguloFim - anguloInicio) / 2)))) < 30){
+      mostraInfoFacto();
+    }
+    
+    
     // AREA
     
     fill(coresNacionalidades.get(this.pais), 30);
@@ -36,4 +43,22 @@ class Marco {
     vertex(maxXY * cos(anguloFim), maxXY * sin(anguloFim));
     endShape();
   }
+ 
+  void mostraInfoFacto() {
+    fill(0, 255);
+    textFont(Font1);
+    textSize(12);
+    String[] temp = split(this.descricao, "%") ;
+    int incremet = 0;
+    text(this.anoInicio + " — " + this.anoFim, 0, -20 );
+    textFont(Font2);
+    textSize(12);
+    for(int i = 0; i < temp.length; i ++){
+      text(temp[i], 0, 20 * incremet);
+      println(temp[i]);
+      incremet++;
+    }
+   
+  }
+  
 }
